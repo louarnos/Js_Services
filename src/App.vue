@@ -8,22 +8,21 @@
       <v-toolbar-sideicon class="nav-icon-right">
         <img class="nav-logo-right" :src="require('@/assets/association.png')"/>
       </v-toolbar-sideicon>
-<!--
-      <v-menu v-if="isMobile">
-		 <font-awesome-icon icon="caret-down" size="2x" slot="activator"></font-awesome-icon/>
-         <v-list>
-           <v-btn class="nav-text" flat v-scroll-to="{ el: '#about', offset: -100 }" >What We Do</v-btn>
-           <v-btn class="nav-text" flat v-scroll-to="{ el: '#previous-work', offset: -100 }">Previous Work</v-btn>
-         </v-list>
-      </v-menu>
-      <v-toolbar-items v-else>
-        <v-btn class="nav-text" flat v-scroll-to="{ el: '#about', offset: -100 }" > What we Do </v-btn>
-        <v-btn class="nav-text" flat v-scroll-to="{ el: '#previous-work', offset: -100 }">Previous Work</v-btn>
-      </v-toolbar-items>
--->
     </v-toolbar>
 
     <div class="main">
+	  <div class="fixed-icon-holder">
+	  	<div class="full-width">
+		  <a href="https://www.facebook.com/JsJunkRemovalServices/">
+		    <font-awesome-icon :icon="[ 'fab', 'facebook' ]" size="3x"/>
+		  </a>
+	    </div>
+	  	<div class="full-width">
+		  <a href="tel:+9789399068">
+	  	    <font-awesome-icon :icon="[ 'fas', 'phone-volume' ]" size="3x"/>
+		  </a>
+	    </div>
+	  </div>
       <div class="jumbo-container">
 		<v-img :src="require('@/assets/trailer.jpg')">
 	    </v-img>
@@ -101,7 +100,7 @@ We are a full service Junk Removal Company operating out of Danvers MA. We provi
                </v-card-title>
              </v-flex>
              <v-flex sm12 color="#000000" class="carousel-container">
-               <carousel :per-page="isMobile ? 1 : 2" :mouse-drag="false">
+               <carousel :per-page="isMobile ? 1 : 2" :autoplay="true" :navigationEnabled="true">
                  <slide v-for="index in [1,2,3,4,5,6,7,8,9,10,11,12,13,14]">
                    <v-img :height="'400px'" :src="require(`@/assets/image${index}.jpeg`)"></v-img>
                  </slide>
@@ -262,5 +261,27 @@ export default {
   }
   .callable-link:hover {
 	color: #fff;
+  }
+  .fixed-icon-holder {
+    //width: 5%;
+    color: rgba(225, 0, 0, .5);
+    border-radius: 2%;
+    top: 100px;
+    position: fixed;
+    z-index: 1;
+    background: black;
+	text-align: center;
+	padding: 1%;
+  }
+  .fixed-icon-holder > div > a > svg {
+	  margin-top: 20%;
+	  color: white;
+	  opacity: 1.0;
+  }
+  .fixed-icon-holder > div > a > svg:hover {
+	  color: grey;
+  }
+  .VueCarousel-navigation-button {
+	  color: #1AB20C !important;
   }
 </style>
